@@ -28,6 +28,11 @@
   "private": true,
   "dependencies": {
     "@nrwl/next": "13.2.3",
+    "@visx/brush": "^2.5.0",
+    "@visx/group": "^2.1.0",
+    "@visx/mock-data": "^2.1.2",
+    "@visx/scale": "^2.2.2",
+    "@visx/shape": "^2.4.0",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "next": "12.0.0",
@@ -76,4 +81,3 @@
     "typescript": "4.3.5"
   }
 }
-
