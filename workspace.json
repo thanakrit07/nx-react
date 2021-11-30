@@ -24,6 +24,88 @@
         }
       }
     },
+    "test-lib": {
+      "root": "apps/test-lib",
+      "sourceRoot": "apps/test-lib",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "root": "apps/test-lib",
+            "outputPath": "dist/apps/test-lib"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "test-lib:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "test-lib:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "test-lib:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/test-lib"],
+          "options": {
+            "jestConfig": "apps/test-lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/test-lib/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "test-lib-e2e": {
+      "root": "apps/test-lib-e2e",
+      "sourceRoot": "apps/test-lib-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/test-lib-e2e/cypress.json",
+            "devServerTarget": "test-lib:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "test-lib:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/test-lib-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["test-lib"]
+    },
     "three": {
       "root": "apps/three",
       "sourceRoot": "apps/three",
