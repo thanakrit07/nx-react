@@ -1,6 +1,29 @@
 {
   "version": 2,
   "projects": {
+    "chart-BrushChart": {
+      "root": "libs/chart/BrushChart",
+      "sourceRoot": "libs/chart/BrushChart/src",
+      "projectType": "library",
+      "tags": [],
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/chart/BrushChart/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/chart/BrushChart"],
+          "options": {
+            "jestConfig": "libs/chart/BrushChart/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "three": {
       "root": "apps/three",
       "sourceRoot": "apps/three",
