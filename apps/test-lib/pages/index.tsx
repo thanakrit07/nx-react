@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BrushChart } from '@nx-react-test/chart/BrushChart';
+import { BrushChart } from '@nx-react-test/chart';
 const Container = styled.div`
   width: 500px;
   height: 500px;

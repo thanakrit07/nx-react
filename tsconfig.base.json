@@ -18,8 +18,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-react-test/chart/BrushChart": [
-        "libs/chart/BrushChart/src/index.ts"
+      "@nx-react-test/chart": [
+        "libs/chart/src/index.ts"
       ]
     }
   },
